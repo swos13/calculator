@@ -1,3 +1,11 @@
+const display = document.querySelector('#display');
+const numericButtons = document.querySelectorAll('.numeric');
+const commaButton = document.querySelector('.comma');
+
+function putOnDisplay(numeric){
+    display.value += numeric;
+}
+
 function add(addendOne, addendTwo){
     return addendOne + addendTwo;
 }
@@ -33,3 +41,15 @@ function operate(operator, numberOne, numberTwo){
     }
     return result;
 }
+
+numericButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            putOnDisplay(button.value);
+        });
+})
+
+commaButton.addEventListener('click', () =>{
+    if(!display.value.includes(".")){
+        putOnDisplay(commaButton.value);
+    }
+})
