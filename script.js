@@ -1,6 +1,12 @@
-const display = document.querySelector('#display');
+const display = document.querySelector('#current');
 const numericButtons = document.querySelectorAll('.numeric');
 const commaButton = document.querySelector('.comma');
+const operationButtons = document.querySelectorAll('.operation');
+const memory = document.querySelector('#memory');
+
+let numberOne = null;
+let numberTwo = null;
+let operation = '';
 
 function putOnDisplay(numeric){
     display.value += numeric;
@@ -42,6 +48,10 @@ function operate(operator, numberOne, numberTwo){
     return result;
 }
 
+function isNumberOneEmpty(){
+    return numberOne == '' ? true : false;
+}
+
 numericButtons.forEach((button) => {
         button.addEventListener('click', () => {
             putOnDisplay(button.value);
@@ -52,4 +62,17 @@ commaButton.addEventListener('click', () =>{
     if(!display.value.includes(".")){
         putOnDisplay(commaButton.value);
     }
+})
+
+operationButtons.forEach((operationButton) => {
+    operationButton.addEventListener('click', () => {
+        if(display.value != ''){
+            numberOne = parseInt(display.value);
+            operator = operationButton.value;
+            putOnDisplay(operationButton.value);
+            memory.textContent = `${numberOne} ${operator}`
+            current.value = '';
+            console.log(`display - ${typeof display.value} numOne - ${typeof numberOne}`);
+        }
+    })
 })

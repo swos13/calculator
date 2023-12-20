@@ -9,7 +9,10 @@
 <body>
     <script src="script.js" defer></script>
     <div id="calculator">
-        <input type="text" id="display"></input>
+        <div id="display">
+            <input type="text" id="current">
+            <p id="memory"></p>
+        </div>
         <div id="buttons">
             <div id="top-row">
                 <button>AC</button>
@@ -43,7 +46,7 @@
                 <div id="side-operations-container">
                     <button class="operation" value="+">+</button>
                     <button class="operation" value="-">-</button>
-                    <button class="operation" id="equal" value="=">=</button>
+                    <button id="equal" value="=">=</button>
                 </div>
             </div>
         </div>

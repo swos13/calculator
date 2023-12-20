@@ -23,9 +23,24 @@ body {
     flex-direction: column;
 }
 
-#display {
+#display{
+    flex: 1;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#current {
+    flex: 3;
+    text-align: right;
+    border: none;
+}
+
+#memory {
     flex: 1;
     text-align: right;
+    margin: 2px 0;
 }
 
 #top-row {
