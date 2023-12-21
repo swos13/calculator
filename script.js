@@ -4,6 +4,8 @@ const numericButtons = document.querySelectorAll('.numeric');
 const commaButton = document.querySelector('.comma');
 const operationButtons = document.querySelectorAll('.operation');
 const equalButton = document.querySelector('#equal');
+const clearButton = document.querySelector('#clear');
+const allClearButton = document.querySelector('#all-clear');
 
 display.value = '0';
 let numberOne = null;
@@ -73,13 +75,25 @@ operationButtons.forEach((operationButton) => {
         numberOne = parseFloat(display.value);
         operation = operationButton.value;
         memory.textContent = `${numberOne} ${operation}`
-        current.value = '';
+        display.value = '0';
     })
 })
 
 equalButton.addEventListener('click', () => {
     if(display.value != '' || operation == ''){
         numberTwo = parseFloat(display.value);
-        current.value = operate(operation, numberOne, numberTwo);
+        display.value = operate(operation, numberOne, numberTwo);
     }
+})
+
+clearButton.addEventListener('click', () => {
+    display.value = '0';
+})
+
+allClearButton.addEventListener('click', () => {
+    display.value = '0';
+    memory.textContent = '';
+    numberOne = null;
+    numberTwo = null;
+    operation = '';
 })
