@@ -81,12 +81,12 @@ operationButtons.forEach((operationButton) => {
             display.value = '0';
             numberOne = null;
             operation = '';
-            memory.textContent = '';
+            memory.value = '';
         }
         else if(operation == ''){
             numberOne = parseFloat(display.value);
             operation = operationButton.value;
-            memory.textContent = `${numberOne} ${operation}`;
+            memory.value = `${numberOne} ${operation}`;
             display.value = '0';
         }
         else{
@@ -95,11 +95,11 @@ operationButtons.forEach((operationButton) => {
             if(temp != 'ERROR'){
                 numberOne = parseFloat(temp);
                 operation = operationButton.value;
-                memory.textContent = `${numberOne} ${operation}`;
+                memory.value = `${numberOne} ${operation} `;
                 display.value = '0';
             }
             else {
-                memory.textContent = `${numberOne} ${operation} 0`;
+                memory.value = `${numberOne} ${operation} 0`;
                 display.value = temp;
                 operation = '';
             }
@@ -113,7 +113,7 @@ equalButton.addEventListener('click', () => {
     if(operation != ''){
         numberTwo = parseFloat(display.value);
         display.value = operate(operation, numberOne, numberTwo);
-        memory.textContent += ` ${numberTwo} = `
+        memory.value += ` ${numberTwo} = `
         operation = '';
     }
 })
@@ -124,7 +124,7 @@ clearButton.addEventListener('click', () => {
 
 allClearButton.addEventListener('click', () => {
     display.value = '0';
-    memory.textContent = '';
+    memory.value = '';
     numberOne = null;
     numberTwo = null;
     operation = '';
