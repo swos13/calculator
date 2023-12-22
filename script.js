@@ -80,9 +80,11 @@ operationButtons.forEach((operationButton) => {
 })
 
 equalButton.addEventListener('click', () => {
-    if(display.value != '' || operation == ''){
+    if(operation != ''){
         numberTwo = parseFloat(display.value);
         display.value = operate(operation, numberOne, numberTwo);
+        memory.textContent += ` ${numberTwo}`
+        operation = '';
     }
 })
 
