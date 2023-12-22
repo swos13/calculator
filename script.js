@@ -12,8 +12,13 @@ let numberOne = null;
 let numberTwo = null;
 let operation = '';
 
+
+function isError(){
+    return display.value == 'ERROR' ? true : false;
+}
+
 function putOnDisplay(numeric){
-    if(display.value == '0' && numeric != '.')
+    if((display.value == '0' && numeric != '.') || isError())
         display.value = '';
     display.value += numeric;
 }
@@ -72,10 +77,35 @@ commaButton.addEventListener('click', () =>{
 
 operationButtons.forEach((operationButton) => {
     operationButton.addEventListener('click', () => {
-        numberOne = parseFloat(display.value);
-        operation = operationButton.value;
-        memory.textContent = `${numberOne} ${operation}`
-        display.value = '0';
+        if(isError()){
+            display.value = '0';
+            numberOne = null;
+            operation = '';
+            memory.textContent = '';
+        }
+        else if(operation == ''){
+            numberOne = parseFloat(display.value);
+            operation = operationButton.value;
+            memory.textContent = `${numberOne} ${operation}`;
+            display.value = '0';
+        }
+        else{
+            numberTwo = parseFloat(display.value);
+            let temp = operate(operation, numberOne, numberTwo);
+            if(temp != 'ERROR'){
+                numberOne = parseFloat(temp);
+                operation = operationButton.value;
+                memory.textContent = `${numberOne} ${operation}`;
+                display.value = '0';
+            }
+            else {
+                memory.textContent = `${numberOne} ${operation} 0`;
+                display.value = temp;
+                operation = '';
+            }
+            numberTwo = null;
+        }
+        
     })
 })
 
@@ -83,7 +113,7 @@ equalButton.addEventListener('click', () => {
     if(operation != ''){
         numberTwo = parseFloat(display.value);
         display.value = operate(operation, numberOne, numberTwo);
-        memory.textContent += ` ${numberTwo}`
+        memory.textContent += ` ${numberTwo} = `
         operation = '';
     }
 })
