@@ -23,7 +23,8 @@ function putOnDisplay(numeric){
       return;
     if(parseFloat(display.value) == result){
         memory.value = '';
-        display.value = '';  
+        display.value = '';
+        result = null;  
     }
     if((display.value == '0' && numeric != '.') || isError())
         display.value = '';  
