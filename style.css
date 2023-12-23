@@ -59,6 +59,16 @@ body {
     flex: 1;
 }
 
+button {
+    background-color: rgb(70,70,70);
+    color: white;
+    border-radius: 40px;
+}
+
+button:active{
+    background-color: black;
+}
+
 #first-two-columns {
     display: flex;
     flex-direction: column;
