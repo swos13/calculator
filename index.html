@@ -14,6 +14,39 @@
             <input type="text" id="current">
         </div>
         <div id="buttons">
+            <div id="first-two-columns">
+                <div id="squares">
+                    <div id="first-column" class="column">
+                        <button id="all-clear">AC</button>
+                        <button class="numeric" value="7">7</button>
+                        <button class="numeric" value="4">4</button>
+                        <button class="numeric" value="1">1</button>
+                    </div>
+                    <div id="second-column" class="column">
+                        <button id="clear">C</button>
+                        <button class="numeric" value="8">8</button>
+                        <button class="numeric" value="5">5</button>
+                        <button class="numeric" value="2">2</button>
+                    </div>
+                </div>
+                <button id="zero" class="numeric" value="0">0</button>
+            </div>
+            <div id="third-column" class="column">
+                <button class="operation" value="/">/</button>
+                <button class="numeric" value="9">9</button>
+                <button class="numeric" value="6">6</button>
+                <button class="numeric" value="3">3</button>
+                <button class="comma" value="." >,</button>
+            </div>
+            <div id="fourth-column" class="column">
+                <div id="side-operations-container">
+                    <button class="operation" value="x">X</button>
+                    <button class="operation" value="+">+</button>
+                    <button class="operation" value="-">-</button>
+                </div>
+                <button id="equal" value="=">=</button>
+            </div>
+            <!--
             <div id="top-row">
                 <button id="all-clear">AC</button>
                 <button id="clear">C</button>
@@ -47,8 +80,7 @@
                     <button class="operation" value="+">+</button>
                     <button class="operation" value="-">-</button>
                     <button id="equal" value="=">=</button>
-                </div>
-            </div>
+                </div>-->
         </div>
     </div>
 </body>
