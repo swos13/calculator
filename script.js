@@ -10,6 +10,7 @@ const allClearButton = document.querySelector('#all-clear');
 display.value = '0';
 let numberOne = null;
 let numberTwo = null;
+let result = null;
 let operation = '';
 
 
@@ -18,9 +19,14 @@ function isError(){
 }
 
 function putOnDisplay(numeric){
-    if(display.value.length > 15) return;
+    if(display.value.length > 15) 
+      return;
+    if(parseFloat(display.value) == result){
+        memory.value = '';
+        display.value = '';  
+    }
     if((display.value == '0' && numeric != '.') || isError())
-        display.value = '';
+        display.value = '';  
     display.value += numeric;
 }
 
@@ -116,6 +122,8 @@ equalButton.addEventListener('click', () => {
         display.value = operate(operation, numberOne, numberTwo);
         memory.value += ` ${numberTwo} =`
         operation = '';
+        if(display.value != 'ERROR')
+            result = parseFloat(display.value);
     }
 })
 
