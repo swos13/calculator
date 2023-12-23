@@ -19,6 +19,8 @@ function isError(){
 }
 
 function putOnDisplay(numeric){
+    if(display.value.length > 15) 
+      return;
     if(parseFloat(display.value) == result){
         memory.value = '';
         display.value = '';  
@@ -29,7 +31,7 @@ function putOnDisplay(numeric){
 }
 
 function add(addendOne, addendTwo){
-    return addendOne + addendTwo;
+    return  addendOne + addendTwo;
 }
 
 function substract(minuend, subtrahend){
@@ -100,11 +102,11 @@ operationButtons.forEach((operationButton) => {
             if(temp != 'ERROR'){
                 numberOne = parseFloat(temp);
                 operation = operationButton.value;
-                memory.value = `${numberOne} ${operation} `;
+                memory.value = `${numberOne} ${operation}`;
                 display.value = '0';
             }
             else {
-                memory.value = `${numberOne} ${operation} 0`;
+                memory.value = `${numberOne} ${operation} ${numberTwo}`;
                 display.value = temp;
                 operation = '';
             }
@@ -118,7 +120,7 @@ equalButton.addEventListener('click', () => {
     if(operation != ''){
         numberTwo = parseFloat(display.value);
         display.value = operate(operation, numberOne, numberTwo);
-        memory.value += ` ${numberTwo} = `;
+        memory.value += ` ${numberTwo} =`
         operation = '';
         if(display.value != 'ERROR')
             result = parseFloat(display.value);
