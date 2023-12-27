@@ -32,7 +32,7 @@ function putOnDisplay(numeric){
 }
 
 function add(addendOne, addendTwo){
-    return  addendOne + addendTwo;
+    return addendOne + addendTwo;
 }
 
 function substract(minuend, subtrahend){

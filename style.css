@@ -25,9 +25,9 @@ body {
     flex-direction: column;
 }
 
-#display{
+#display {
     border: 2px solid rgb(100,100,100);
-    
+
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -38,23 +38,24 @@ body {
 }
 
 #current {
-    flex: 3;
-
     text-align: right;
     font-size: 24px;
     border: 2px solid black;
     border-top: none;
     padding: 0 4px;
+
+    flex: 3;
 }
 
 #memory {
     color: rgba(0,0,0,0.60);
-    flex: 1;
     text-align: right;
     margin-top: 2px;
     padding: 0 4px;
     border: 2px solid black;
     border-bottom: 1px solid black;
+
+    flex: 1;
 }
 
 #buttons {
@@ -72,7 +73,7 @@ button {
     border-radius: 40px;
 }
 
-button:active{
+button:active {
     background-color: black;
 }
 
